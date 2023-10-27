@@ -38,9 +38,13 @@ const Weather: React.FC = () => {
 
   const searchData = (e: React.FormEvent) => {
     e.preventDefault();
-    setSearchCity(searchWeather);
-    APIfetch();
-    setSearchWeather("");
+    if (!searchWeather) {
+      alert("Enter city name");
+    } else {
+      setSearchCity(searchWeather);
+      APIfetch();
+      setSearchWeather("");
+    }
   };
 
   useEffect(() => {
@@ -53,7 +57,7 @@ const Weather: React.FC = () => {
 
   return (
     <>
-      <div className="weather_main bg-blue-500 h-[100vh]">
+      <div className="weather_main bg-blue-500 h-[100vh] flex items-center">
         <div className="container">
           <div className="weather-box flex justify-around items-center">
             <form className="text-center border p-3" onSubmit={searchData}>
