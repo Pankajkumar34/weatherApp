@@ -12,7 +12,8 @@ const Weather: React.FC = () => {
 
   const APIfetch = async () => {
     let api_key = "9bc47850ac2ee99d2da4f6d993c78bb9";
-    let base_url = "https://api.openweathermap.org/data/2.5/weather?";
+    // let base_url = "https://api.openweathermap.org/data/2.5/weather?";
+    let base_url = " https://api.openweathermap.org/data/2.5/weather?";
 
     let complete_url = `${base_url}appid=${api_key}&q=${
       !searchCity ? "London" : searchCity
