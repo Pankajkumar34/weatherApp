@@ -18,6 +18,22 @@ interface WeatherData {
     country: string;
   };
 }
+
+interface custom_type {
+  name: string;
+  main: {
+    temp: number;
+    feels_like: number;
+    humidity: number;
+  };
+  weather: {
+    description: string;
+    icon: string;
+  }[];
+  sys: {
+    country: string;
+  };
+}
 const Weather: React.FC = () => {
   const [searchWeather, setSearchWeather] = useState<string>(""); // input value
   const [searchCity, setSearchCity] = useState<string>(""); // search city name
@@ -25,7 +41,7 @@ const Weather: React.FC = () => {
   const [temperatureInCelsius, setTemperatureInCelsius] = useState<string>(); /// city tempreature
   const [feelslike, setFeelslike] = useState<string>(); // feels like
   const [temperData, setTemperatureData] = useState<any>(); // all weather data store
-  const [error, setEorror] = useState<object | string>([]); // error
+  const [error, setEorror] = useState<any>({}); // error
   const [country, setCountry] = useState<any>([]); // country code
 
   const APIfetch = async () => {
@@ -43,7 +59,7 @@ const Weather: React.FC = () => {
         setTemperatureData(data);
         console.log(data, "data");
 
-        setEorror("");
+        setEorror({});
         // Extract the temperature in Celsius
         const temperatureInKelvin = data.main.temp;
         const iconCode = data.weather[0].icon;
@@ -122,7 +138,7 @@ const Weather: React.FC = () => {
                 value="search"
                 className="box-shadow rounded p-[5px] border text-white"
               />
-              {error && <p className="text-white">{error.message}</p>}
+              {error && <p className="text-white">{error?.message}</p>}
             </form>
             <div className="weather_show  w-[100%] h-[300px]">
               <div className="weather_count">
