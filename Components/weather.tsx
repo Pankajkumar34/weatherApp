@@ -11,8 +11,8 @@ const Weather: React.FC= () => {
   const [searchWeather, setSearchWeather] = useState<string>(""); // input value
   const [searchCity, setSearchCity] = useState<string>(""); // search city name
   const [iconUrl, setsetIconUrl] = useState<string>(""); // search city name
-  const [temperatureInCelsius, setTemperatureInCelsius] = useState<string>(); /// city tempreature
-  const [feelslike, setFeelslike] = useState<string>(); // feels like
+  const [temperatureInCelsius, setTemperatureInCelsius] = useState<number| any>(); /// city tempreature
+  const [feelslike, setFeelslike] = useState<number| any>(); // feels like
   const [temperData, setTemperatureData] = useState<any>(); // all weather data store
   const [error, setEorror] = useState<any>({}); // error
   const [country, setCountry] = useState<any>([]); // country code
@@ -93,7 +93,7 @@ const Weather: React.FC= () => {
     temperatureInCelsius={temperatureInCelsius}
     temperData={temperData}
     country={country}
-    Feelslike={feelslike}
+    feelslike={feelslike}
     searchData ={searchData} handleInputChange={handleInputChange}/>
   </>
   );
