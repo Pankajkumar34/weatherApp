@@ -10,7 +10,7 @@ const Weather: React.FC = () => {
   const [temperatureInCelsius, setTemperatureInCelsius] = useState<string>(); /// city tempreature
   const [feelslike, setFeelslike] = useState<string>(); // feels like
   const [temperData, setTemperatureData] = useState<any>(); // all weather data store
-  const [error, setEorror] = useState<object>([]); // error
+  const [error, setEorror] = useState<object | string>([]); // error
   const [country, setCountry] = useState<any>([]); // country code
 
   const APIfetch = async () => {
@@ -28,7 +28,7 @@ const Weather: React.FC = () => {
         setTemperatureData(data);
         console.log(data, "data");
 
-        setEorror<object>(null);
+        setEorror("");
         // Extract the temperature in Celsius
         const temperatureInKelvin = data.main.temp;
         const iconCode = data.weather[0].icon;
@@ -76,7 +76,7 @@ const Weather: React.FC = () => {
   }, [searchCity]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEorror<object>(null);
+    setEorror("");
     setSearchWeather(e.target.value);
   };
 
