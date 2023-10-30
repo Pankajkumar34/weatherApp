@@ -3,6 +3,21 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import weatherIcon from "../public/assets/weather.png";
 import { countryCode } from "@/CountryCodes";
+interface WeatherData {
+  name: string;
+  main: {
+    temp: number;
+    feels_like: number;
+    humidity: number;
+  };
+  weather: {
+    description: string;
+    icon: string;
+  }[];
+  sys: {
+    country: string;
+  };
+}
 const Weather: React.FC = () => {
   const [searchWeather, setSearchWeather] = useState<string>(""); // input value
   const [searchCity, setSearchCity] = useState<string>(""); // search city name
@@ -24,7 +39,7 @@ const Weather: React.FC = () => {
     try {
       const response = await fetch(complete_url);
       if (response.ok) {
-        let data: any = await response.json();
+        let data: WeatherData = await response.json();
         setTemperatureData(data);
         console.log(data, "data");
 
