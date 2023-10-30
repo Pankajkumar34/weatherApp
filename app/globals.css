@@ -7,5 +7,9 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
-
+.weather-box {
+  background: url("https://img.freepik.com/free-vector/blurry-abstract-background-vector-template_53876-161395.jpg?w=740&t=st=1698654621~exp=1698655221~hmac=6361a09b176b5e464b1761b5674586ef0c3b934b57212ea16c8e16ec43d870c8");
+  background-position: center;
+  background-size: cover;
+  width: 33%;
+}
