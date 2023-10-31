@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:css": "tailwindcss build styles.css -o public/build/tailwind.css",
+    
     "dev": "next dev",
-    "build": "next build && build:css ",
+    "build": "next build && tailwindcss build styles.css -o public/build/tailwind.css",
     "start": "next start",
     "lint": "next lint"
   },
